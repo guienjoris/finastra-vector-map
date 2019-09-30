@@ -1,0 +1,32 @@
+#container{
+    display:flex;
+    width:90%;
+    border: 1px solid black;
+    border-radius: 1%;
+    padding:1%;
+}
+.checkboxGroup{
+    margin-left:50%;
+    transform: translate(-50%);
+}
+.container_bis{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    width:33%;
+    input{
+        margin-left:50%;
+        transform: translate(-50%);
+        width:100%;
+    }
+    mat-form-field{
+        width:80%;
+        margin-left:50%;
+        transform: translate(-50%);
+    }
+    mat-radio-button,mat-checkbox{
+        margin:1%;
+    }
+  }
+  
+  

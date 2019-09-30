@@ -1,0 +1,19 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "outDir": "../dist/tools",
+    "rootDir": ".",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2015",
+    "types": ["node"]
+  },
+  "include": ["**/*.ts"]
+}

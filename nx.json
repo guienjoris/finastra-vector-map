@@ -1,0 +1,24 @@
+{
+  "npmScope": "ffdc",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "test-e2e": {
+      "tags": []
+    },
+    "test": {
+      "tags": []
+    },
+    "angular-components": {
+      "tags": []
+    },
+    "angular-theme": {
+      "tags": []
+    }
+  }
+}

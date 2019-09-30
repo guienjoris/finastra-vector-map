@@ -1,0 +1,8 @@
+{
+  "debug.node.autoAttach": "on",
+  "workbench.colorCustomizations": {
+    "activityBar.border": "#c137a2",
+    "menubar.selectionForeground": "#ffffff",
+    "titleBar.border": "#c137a2"
+  }
+}

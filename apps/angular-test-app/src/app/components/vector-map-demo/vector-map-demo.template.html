@@ -1,0 +1,177 @@
+<uxg-vector-map
+  [data]="demoData"
+  [displayField]="displayField"
+  [valueField]="valueField"
+  [centerPos]="centerPos"
+  [colorbarTitle]="colorbarTitle"
+  [colorbarColorMin]="colorbarColorMin"
+  [colorbarColorMax]="colorbarColorMax"
+  [titleMap]="titleMap"
+  [width]="width"
+  [height]="height"
+  [landColor]="landColor"
+  [countryColor]="countryColor"
+  [clickModeStatus]="clickModeStatus"
+  [showcountriesCheck]="showcountriesCheck"
+  [showlandCheck]="showlandCheck"
+  [showborderMap]="showborderMap"
+  [showcoastLines]="showcoastLines"
+  [countryNameType]="countryNameType"
+  (countryClick)="onCountryClick($event)"
+>
+</uxg-vector-map>
+<mat-button-toggle id="controlBar" name="controlBar" value="!checked" (click)="toggleVisibility(checked)"
+  >Configuration</mat-button-toggle
+>
+
+<div id="container" *ngIf="checked">
+  <div class="container_bis">
+    <mat-radio-group>
+      Country Names Types: <br />
+      <mat-radio-button value="country names" name="selectType" [checked]="true" (change)="selectCountryType($event)"
+        >Country Names</mat-radio-button
+      >
+      <mat-radio-button value="ISO-3" name="selectType" (change)="selectCountryType($event)">ISO-3</mat-radio-button>
+      <mat-radio-button value="USA-states" name="selectType" (change)="selectCountryType($event)"
+        >USA-States</mat-radio-button
+      > </mat-radio-group
+    ><br />
+    <div class="checkboxGroup">
+      <mat-checkbox [(ngModel)]="showcountriesCheck" [checked]="true">Show Countries Boundaries</mat-checkbox>
+      <mat-checkbox [(ngModel)]="showlandCheck" [checked]="true">Show Land</mat-checkbox>
+      <mat-checkbox [(ngModel)]="showborderMap">Show Border Map</mat-checkbox>
+      <mat-checkbox [(ngModel)]="showcoastLines" [checked]="true">Show Coast Lines</mat-checkbox>
+      <mat-checkbox [(ngModel)]="clickMode" [checked]="true" (click)="clickStatus()">Click Country Event</mat-checkbox
+      ><br />
+    </div>
+    <mat-form-field>
+      <label for="landColor">Land Color:</label>
+      <input
+        matInput
+        type="color"
+        id="landColor"
+        name="landColor"
+        (input)="landColor$.next($event.target.value)"
+        [value]="landColor"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <label for="countryColor">Boundaries Color:</label>
+      <input
+        matInput
+        type="color"
+        id="countryColor"
+        name="countryColor"
+        (input)="countryColor$.next($event.target.value)"
+        [value]="countryColor"
+      /> </mat-form-field
+    ><br />
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        id="countries"
+        name="countries"
+        [value]="countries"
+        (keyup.enter)="countries$.next($event.target.value)"
+        placeholder="Countries:"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        id="values"
+        name="values"
+        [value]="values"
+        (keyup.enter)="values$.next($event.target.value)"
+        placeholder="Values: "
+      /> </mat-form-field
+    ><br />
+    <br />
+  </div>
+  <div class="container_bis">
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        id="width"
+        name="width"
+        placeholder="Width of Map"
+        (input)="width$.next($event.target.value)"
+        [value]="width"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        id="height"
+        name="height"
+        placeholder="Height of Map"
+        (input)="height$.next($event.target.value)"
+        [value]="height"
+      /> </mat-form-field
+    ><br />
+    <mat-form-field>
+      <mat-label>Map Center</mat-label>
+      <select matNativeControl name="centerMap" (change)="checkPosition($event)">
+        <option value="Europe">Europe</option>
+        <option value="USA">USA</option>
+        <option value="Oceanie">Oceania</option>
+        <option value="Asie">Asia</option>
+        <option value="Afrique">Africa</option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        id="titleMap"
+        name="titleMap"
+        placeholder="Title of Map"
+        (input)="titleMap$.next($event.target.value)"
+        [value]="titleMap"
+      /> </mat-form-field
+    ><br />
+  </div>
+  <div class="container_bis">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder=" ColorBar Title"
+        id="colorbarTitle"
+        name="colorbarTitle"
+        (input)="colorbarTitle$.next($event.target.value)"
+        [value]="colorbarTitle"
+      /> </mat-form-field
+    ><br />
+
+    <mat-form-field>
+      <label for="colorbarColorMin">ColorBar Minimum:</label>
+      <input
+        matInput
+        type="color"
+        id="colorbarColorMin"
+        name="colorbarColorMin"
+        (input)="colorbarColorMin$.next($event.target.value)"
+        [value]="colorbarColorMin"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <label for="colorbarColorMax">ColorBar Maximum:</label>
+      <input
+        matInput
+        type="color"
+        id="colorbarColorMax"
+        name="colorbarColorMax"
+        (input)="colorbarColorMax$.next($event.target.value)"
+        [value]="colorbarColorMax"
+      /> </mat-form-field
+    ><br />
+  </div>
+</div>
